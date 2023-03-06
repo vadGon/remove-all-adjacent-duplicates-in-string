@@ -14,17 +14,18 @@ public class Solution {
             if (!stack.empty() && stack.size() >= k - 1 && stack.peek().charValue() == arr[i]) {
 
                 boolean allSame = true;
+
                 for (int j = 1; j < k; j++) {
-                    if (!(stack.get(stack.size() - j).charValue() == arr[i])) {
+                    if (stack.get(stack.size() - j).charValue() != arr[i]) {
                         allSame = false;
                     }
                 }
-                if (!allSame) {
-                    stack.push(arr[i]);
-                } else {
+                if (allSame) {
                     for (int q = 1; q < k; q++) {
                         stack.pop();
                     }
+                } else {
+                    stack.push(arr[i]);
                 }
             } else {
                 stack.push(arr[i]);

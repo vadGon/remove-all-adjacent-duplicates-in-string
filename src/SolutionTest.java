@@ -3,48 +3,52 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SolutionTest {
 
     @org.junit.jupiter.api.Test
-    void simpleTest1() {
-        assertEquals("ps", Solution.removeAdjacentDuplicates("pbbcggttciiippooaais", 2));
-
+    void deleteSequenceWithTwoCharactersWhenInputIsEmpty() {
+        assertEquals("", Solution.removeAdjacentDuplicates("", 2));
     }
 
     @org.junit.jupiter.api.Test
-    void simpleTest2() {
-        assertEquals("abcd", Solution.removeAdjacentDuplicates("abcd", 2));
-    }
-
-    @org.junit.jupiter.api.Test
-    void simpleTest3() {
-        assertEquals("i", Solution.removeAdjacentDuplicates("iii", 2));
-    }
-
-    @org.junit.jupiter.api.Test
-    void simpleTest4() {
-        assertEquals("", Solution.removeAdjacentDuplicates("iibb", 2));
-    }
-
-    @org.junit.jupiter.api.Test
-    void simpleTest5() {
-        assertEquals("", Solution.removeAdjacentDuplicates("iibbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", 2));
-    }
-
-    @org.junit.jupiter.api.Test
-    void simpleTest6() {
+    void deleteSequenceWithThoCharactersIfInputStringHasLengthOneCharacter() {
         assertEquals("i", Solution.removeAdjacentDuplicates("i", 2));
     }
 
     @org.junit.jupiter.api.Test
-    void simpleTest7() {
-        assertEquals("aa", Solution.removeAdjacentDuplicates("deeedbbcccbdaa", 3));
+    void deleteSequenceWithTwoCharactersWhenThereIsNoAdjacentDuplicatesInInput() {
+        assertEquals("abcd", Solution.removeAdjacentDuplicates("abcd", 2));
     }
 
     @org.junit.jupiter.api.Test
-    void simpleTest8() {
+    void deleteSequenceWithTwoCharactersAndResultShouldBeEmptyString() {
+        assertEquals("", Solution.removeAdjacentDuplicates("iibb", 2));
+    }
+
+    @org.junit.jupiter.api.Test
+    void deleteSequenceWithTwoCharactersWhenInputThreeSameCharacters() {
+        assertEquals("i", Solution.removeAdjacentDuplicates("iii", 2));
+    }
+
+    @org.junit.jupiter.api.Test
+    void deleteSequenceWithThreeCharactersInTheEndOfTheString() {
         assertEquals("r", Solution.removeAdjacentDuplicates("reee", 3));
     }
 
     @org.junit.jupiter.api.Test
-    void simpleTest9() {
+    void deleteSequenceWithThreeCharactersInTheBeginningOfTheString() {
+        assertEquals("f", Solution.removeAdjacentDuplicates("eeef", 3));
+    }
+
+    @org.junit.jupiter.api.Test
+    void deleteSequenceWithFiveCharactersInTheMiddleOfTheString() {
         assertEquals("wwwu", Solution.removeAdjacentDuplicates("wwwqqqqqu", 5));
+    }
+
+    @org.junit.jupiter.api.Test
+    void simpleCaseFromTaskExampleWithTwoCharacters() {
+        assertEquals("ps", Solution.removeAdjacentDuplicates("pbbcggttciiippooaais", 2));
+    }
+
+    @org.junit.jupiter.api.Test
+    void simpleCaseFromTaskExampleWithThreeCharacters() {
+        assertEquals("aa", Solution.removeAdjacentDuplicates("deeedbbcccbdaa", 3));
     }
 }
